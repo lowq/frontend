@@ -63,8 +63,8 @@ const NewModal: React.FC<Props> = (props) => {
                   {props.news.urslNews.map((item) => (
                     <ImageListItem key={item.id}>
                       <img
-                        srcSet={`${item.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                        src={`${item.url}?w=248&fit=crop&auto=format`}
+                        srcSet={`${item.url}`}
+                        src={`${item.url}`}
                         alt={props.news?.title}
                         loading="lazy"
                       />
