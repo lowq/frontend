@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { News } from "../../models/News.model";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import moment from "moment";
 
 interface Props {
   open: boolean;
@@ -41,7 +42,8 @@ const NewModal: React.FC<Props> = (props) => {
                 color="white"
                 textAlign="center"
               >
-                {props.news.title}
+                {`${props.news.title} |
+                ${moment(props.news.dateCreated).format("DD/MM/YYYY")}`}
               </Typography>
               <Typography
                 textAlign="center"

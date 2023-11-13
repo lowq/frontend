@@ -5,6 +5,7 @@ import NewModal from "./NewModal";
 import axios from "axios";
 import { Response } from "../../models/Response.model";
 import { useQuery } from "@tanstack/react-query";
+import moment from "moment";
 
 const NewsComponent = () => {
   const [openModal, setopenModal] = useState<boolean>(false);
@@ -49,7 +50,7 @@ const NewsComponent = () => {
               <p className="my-3 text-ellipsis overflow-hidden h-1/3">
                 {newsItem.content}
               </p>
-              <div className="h-1/3 flex">
+              <div className="h-1/3 flex justify-between">
                 <div>
                   <Button
                     variant="outlined"
@@ -58,7 +59,9 @@ const NewsComponent = () => {
                     Viac
                   </Button>
                 </div>
-                <h1 className="m-2">{newsItem.dateCreated.toString()}</h1>
+                <h1 className="m-2 text-center">
+                  {moment(newsItem.dateCreated).format("DD/MM/YYYY")}
+                </h1>
               </div>
             </div>
           ))}
