@@ -41,7 +41,7 @@ const FotoList = () => {
     return (
       <div className="flex justify-center w-full overflow-y-auto mb-48">
         <ImageList cols={foto.length < 4 ? foto.length : 4} gap={8}>
-          {foto.map((item) => (
+          {foto.map((item: Foto) => (
             <ImageListItem key={item.id}>
               <img
                 srcSet={`${item.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
