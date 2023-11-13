@@ -44,8 +44,8 @@ const FotoList = () => {
           {foto.map((item: Foto) => (
             <ImageListItem key={item.id}>
               <img
-                srcSet={`${item.url}`}
-                src={`${item.url}`}
+                srcSet={`${item.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={`${item.url}?w=248&fit=crop&auto=format`}
                 alt={item.description}
                 loading="lazy"
               />
