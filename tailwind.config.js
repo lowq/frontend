@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        jump: "url('./src/assets/ND5_2591.webp')",
+        jump: "url('https://res.cloudinary.com/dz36uhdsn/image/upload/v1699907136/ND5_2591_zfztjv.webp')",
       },
     },
   },
