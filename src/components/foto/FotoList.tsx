@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Foto } from "../../models/Fotos.model";
 import axios from "axios";
 import { Response } from "../../models/Response.model";
+import moment from "moment";
 
 const FotoList = () => {
   const fetchFotos = async () => {
@@ -50,8 +51,10 @@ const FotoList = () => {
                 loading="lazy"
               />
               <ImageListItemBar
-                className="text-white"
-                title={item.description}
+                className="text-white text-center"
+                title={`${item.description} | ${moment(item.date).format(
+                  "DD/MM/YYYY"
+                )}`}
                 position="below"
               />
             </ImageListItem>
