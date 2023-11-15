@@ -1,7 +1,13 @@
+import EventsTable from "../components/events/EventsTable";
+
 const Events = () => {
   return (
-    <div>Events</div>
-  )
-}
+    <>
+      <div className="flex justify-center items-center">
+        <EventsTable />
+      </div>
+    </>
+  );
+};
 
-export default Events
+export default Events;

@@ -34,7 +34,7 @@ const NewModal: React.FC<Props> = (props) => {
           }}
         >
           <Fade in={props.open}>
-            <div className="w-1/2 bg-gray-900  bg-cover absolute shadow-2xl letf-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 p-10 shadow-white">
+            <div className="w-1/2 bg-gray-900  bg-cover absolute letf-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 p-10">
               <Typography
                 id="transition-modal-title"
                 variant="h3"

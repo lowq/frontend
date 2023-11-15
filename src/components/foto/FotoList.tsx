@@ -6,6 +6,7 @@ import { Foto } from "../../models/Fotos.model";
 import axios from "axios";
 import { Response } from "../../models/Response.model";
 import moment from "moment";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const FotoList = () => {
   const fetchFotos = async () => {
@@ -31,7 +32,11 @@ const FotoList = () => {
   });
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return (
+      <div className="flex justify-center items-center">
+        <CircularProgress color="primary" />
+      </div>
+    );
   }
 
   if (isError) {
