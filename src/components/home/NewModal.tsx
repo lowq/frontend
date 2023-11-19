@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
@@ -7,6 +6,7 @@ import { News } from "../../models/News.model";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import moment from "moment";
+import React from "react";
 
 interface Props {
   open: boolean;
@@ -82,4 +82,4 @@ const NewModal: React.FC<Props> = (props) => {
   );
 };
 
-export default NewModal
+export default NewModal;

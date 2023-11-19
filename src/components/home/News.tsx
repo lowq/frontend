@@ -26,7 +26,7 @@ const News = () => {
     const response = await axios.get<Response<News[]>>(
       `${import.meta.env.VITE_BACKEND_URL}/news/`,
       {
-        headers: { "Content-type": "application/json; charset=utf-8" },
+        headers: { "Content-type": "application/json" },
       }
     );
 
