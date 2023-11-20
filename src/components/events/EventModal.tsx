@@ -47,7 +47,7 @@ const EventModal: React.FC<Props> = (props) => {
               >
                 {props.event.description}
               </Typography>
-              <Typography
+              {/*  <Typography
                 textAlign="center"
                 id="transition-modal-description"
                 sx={{ mt: 2 }}
@@ -78,7 +78,7 @@ const EventModal: React.FC<Props> = (props) => {
                     </Typography>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </Fade>
         </Modal>
