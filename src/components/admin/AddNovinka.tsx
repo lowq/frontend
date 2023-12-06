@@ -63,7 +63,7 @@ const AddNovinka = () => {
       );
     },
     onSuccess: (data) => {
-      return data.data.url;
+      return data.data.secure_url;
     },
     onError: () => {
       toast.error("Nepodarilo sa pridať novinku");

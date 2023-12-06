@@ -64,7 +64,7 @@ const AddFoto = () => {
     },
     onSuccess: (data) => {
       setImage(null);
-      saveNew.mutate(data.data.url);
+      saveNew.mutate(data.data.secure_url);
     },
     onError: () => {
       toast.error("Nepodarilo sa pridať novinku");
