@@ -1,91 +1,71 @@
-import { useState } from "react";
-import AddNovinka from "../components/admin/AddNovinka";
-import AddPodujatie from "../components/admin/AddPodujatie";
-import AddFoto from "../components/admin/AddFoto";
 import { Button } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Admin = () => {
-  const [isModalAddNovinkaOpen, setIsModalAddNovinkaOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const openModalAddNovinka = () => {
-    setIsModalAddNovinkaOpen(true);
+  const handleNavigate = (route: string): React.MouseEventHandler => {
+    return () => {
+      navigate(route);
+    };
   };
 
-  const closeModalAddNovinka = (good: boolean) => {
-    if (good) {
-      setIsModalAddNovinkaOpen(false);
-    } else {
-      setIsModalAddNovinkaOpen(false);
-    }
-  };
-
-  const [isModalAddPodujatieOpen, setIsModalAddPodujatieOpen] = useState(false);
-
-  const openModalAddPodujatie = () => {
-    setIsModalAddPodujatieOpen(true);
-  };
-
-  const closeModalAddPodujatie = (good: boolean) => {
-    if (good) {
-      setIsModalAddPodujatieOpen(false);
-    } else {
-      setIsModalAddPodujatieOpen(false);
-    }
-  };
-
-  const [isModalAddFotoOpen, setIsModalAddFotoOpen] = useState(false);
-
-  const openModalAddFoto = () => {
-    setIsModalAddFotoOpen(true);
-  };
-
-  const closeModalAddFoto = () => {
-    setIsModalAddFotoOpen(false);
-  };
+  const lastTratEditMutation = useMutation({
+    mutationFn: () => {
+      return axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/podujatia/lastTrackEdit`,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+    },
+    onSuccess: () => {
+      toast.success("Podarilo sa pridať poslednú úpravu trate");
+    },
+    onError: () => {
+      toast.error("Nepodarilo sa pridať poslednú úpravu trate");
+    },
+  });
 
   return (
     <>
-      <div className="md:mx-80 mx-10 items-center">
-        <div className="flex flex-col items-center">
-          <Button
-            variant="contained"
-            size="large"
-            sx={{ fontSize: "5vh", margin: "2vh" }}
-            onClick={openModalAddNovinka}
-          >
-            Pridaj novinku
-          </Button>
-          <AddNovinka
-            isOpen={isModalAddNovinkaOpen}
-            onClose={closeModalAddNovinka}
-          />
+      {!location.pathname.includes("/admin/") ? (
+        <div className="md:mx-80 mx-10 items-center">
+          <div className="flex flex-col items-center">
+            <h1 className="text-white text-5xl">Admin menu na pre správu</h1>
+            <div className="m-5" onClick={handleNavigate("addFoto")}>
+              <Button variant="contained" size="large" className="font-mono">
+                Pridať fotku
+              </Button>
+            </div>
+            <div className="m-5" onClick={handleNavigate("addNew")}>
+              <Button variant="contained" size="large">
+                Pridanie novinky
+              </Button>
+            </div>
+            <div className="m-5" onClick={handleNavigate("addEvent")}>
+              <Button variant="contained" size="large" className="font-mono">
+                Pridanie podujatia
+              </Button>
+            </div>
+            <div className="m-5" onClick={() => lastTratEditMutation.mutate()}>
+              <Button variant="contained" size="large" className="font-mono">
+                Posledná úprava trate
+              </Button>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col items-center">
-          <Button
-            variant="contained"
-            size="large"
-            sx={{ fontSize: "5vh", margin: "2vh" }}
-            onClick={openModalAddPodujatie}
-          >
-            Pridaj podujatie
-          </Button>
-          <AddPodujatie
-            isOpen={isModalAddPodujatieOpen}
-            onClose={closeModalAddPodujatie}
-          />
+      ) : (
+        <div className="flex justify-center items-center w-full">
+          <Outlet />
         </div>
-        <div className="flex flex-col items-center">
-          <Button
-            variant="contained"
-            size="large"
-            sx={{ fontSize: "5vh", margin: "2vh" }}
-            onClick={openModalAddFoto}
-          >
-            Pridaj fotku
-          </Button>
-          <AddFoto open={isModalAddFotoOpen} handleClose={closeModalAddFoto} />
-        </div>
-      </div>
+      )}
     </>
   );
 };

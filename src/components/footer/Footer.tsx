@@ -39,8 +39,8 @@ const Footer = () => {
   });
 
   return (
-    <div className="bg-black bg-opacity-60 fixed bottom-0 w-screen h-32">
-      <div className="flex justify-between items-center my-5 mx-20 h-24">
+    <div className="bg-black md:bg-opacity-60 bg-opacity-80  md:fixed bottom-0 w-screen md:h-32 h-72">
+      <div className="flex md:flex-row flex-col justify-between items-center my-5 mx-20 h-24">
         <div className="flex justify-center items-center ">
           <h1 className="m-2 text-yellow-400">Najbližšie podujatie</h1>
           {isLoadingLastEvent ? (

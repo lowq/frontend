@@ -20,6 +20,9 @@ const FotoList = () => {
     return response.data.status ? response.data.data : [];
   };
 
+  
+  const isMobile: boolean = window.innerWidth < 768;
+
   const {
     isLoading,
     isError,
@@ -46,7 +49,10 @@ const FotoList = () => {
   if (isSuccess) {
     return (
       <div className="flex justify-center w-full overflow-y-auto mb-48">
-        <ImageList cols={foto.length < 4 ? foto.length : 4} gap={8}>
+        <ImageList
+          cols={isMobile ? 1 : foto.length < 4 ? foto.length : 4}
+          gap={8}
+        >
           {foto.map((item: Foto) => (
             <ImageListItem key={item.id}>
               <img

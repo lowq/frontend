@@ -10,13 +10,19 @@ import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import { ToastContainer } from "react-toastify";
 import Admin from "./pages/Admin";
+import AdminLayout from "./pages/layout/AdminLayout";
+import AddFoto from "./components/admin/AddFoto";
+import AddNovinka from "./components/admin/AddNovinka";
+import AddPodujatie from "./components/admin/AddPodujatie";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
     element: <HomeLayout />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
     ],
@@ -36,9 +42,27 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+    ],
+  },
+  {
+    path: "admin",
+    element: (
+      <AdminLayout>
+        <Admin />
+      </AdminLayout>
+    ),
+    children: [
       {
-        path: "/admin",
-        element: <Admin />,
+        path: "addFoto",
+        element: <AddFoto />,
+      },
+      {
+        path: "addNew",
+        element: <AddNovinka />,
+      },
+      {
+        path: "addEvent",
+        element: <AddPodujatie />,
       },
     ],
   },
@@ -48,7 +72,18 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

@@ -1,4 +1,4 @@
-export interface TimesInfo {
-    day: string,
-    time: string
+export interface ITimesInfo {
+  day: string;
+  time: string;
 }

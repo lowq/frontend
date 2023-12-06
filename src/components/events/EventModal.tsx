@@ -28,7 +28,7 @@ const EventModal: React.FC<Props> = (props) => {
           }}
         >
           <Fade in={props.open}>
-            <div className="w-1/2 bg-gray-900  bg-cover absolute letf-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 p-10">
+            <div className="md:w-1/2 md:m-0 m-5 bg-gray-900  bg-cover absolute md:letf-1/2 md:top-1/2 top-1/4 md:translate-x-1/2 md:-translate-y-1/2 p-10">
               <Typography
                 id="transition-modal-title"
                 variant="h3"

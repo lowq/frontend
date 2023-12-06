@@ -17,11 +17,12 @@ const theme = createTheme({
       main: "#fbc02d",
     },
     secondary: {
-      main: "#33691e",
+      main: "#fc8114",
     },
     text: {
-      primary: "#FFFFFF"
-    }
+      primary: "#FFFFFF",
+      secondary: "#000000",
+    },
   },
 });
 

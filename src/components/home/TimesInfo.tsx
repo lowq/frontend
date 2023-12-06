@@ -1,8 +1,8 @@
 import { Table, TableBody, TableCell } from "@mui/material";
-import { TimesInfo } from "../../models/TimesInfo.model";
+import { ITimesInfo } from "../../models/TimesInfo.model";
 
 const TimesInfo = () => {
-  const times: TimesInfo[] = [
+  const times: ITimesInfo[] = [
     {
       day: "Pondelok",
       time: "9:00 - 18:00",
